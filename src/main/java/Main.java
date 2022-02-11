@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,8 +16,15 @@ public class Main {
               productList.add(new Product(130, "dorado italy",160,"sea fish",Category.FISH));
               productList.add(new Product(131, "carp ukrainian ",90,"river fish",Category.FISH));
 
-            
+              //STREAM
 
+            productList.stream().filter(product -> product.getCategory().equals(Category.MILK)).forEach(System.out::println);
+            productList.stream().filter(product -> product.getCategory().equals(Category.MEAT)).forEach(System.out::println);
+            productList.stream().filter(product -> product.getCategory().equals(Category.FISH)).forEach(System.out::println);
+            productList.stream().filter(product -> product.getPrice()<100).forEach(System.out::println);
+            productList.stream().filter(product -> product.getName().contains("ukrainian")).forEach(System.out::println);
+
+            // For each
 
         List<Product> milkarr = new ArrayList<>();
         List<Product> meatarr = new ArrayList<>();
